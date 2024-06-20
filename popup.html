@@ -1,24 +1,48 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="popup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <link rel="stylesheet" href="popup.css">
+
+
 </head>
 <body>
-<div id="image-container">1111111</div>
-<script src="popup.js"></script>
+
+    <img src="hello_extensions.png" alt="Image">
+    <div class="grid-container" id="app">
+        <!-- 第一行：两列 -->
+        <div class="grid-row row-2">
+            <div class="grid-item"><button id="direct-button-search">从粘贴板搜索</button></div>
+            <div class="grid-item">
+                <label>
+                    <input id="text-input-search" type="text">
+                    <button id="text-button-search">搜索</button>
+                </label>
+            </div>
+        </div>
+
+        <!-- 第二行：三列 -->
+        <div class="grid-row row-3">
+            <a class="grid-item film-a" href="https://movie.douban.com/subject/26683290/" target="_blank">
+                <img class="film-img" src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2395733377.webp">
+                <h2>你的名字</h2>
+                <p>评分：6.1</p>
+            </a>
+            <div class="grid-item">列2</div>
+            <div class="grid-item">列3</div>
+        </div>
+
+        <!-- 第三行：四列 -->
+        <div class="grid-row row-4">
+            <div class="grid-item">列1</div>
+            <div class="grid-item">列2</div>
+            <div class="grid-item">列3</div>
+            <div class="grid-item">列4</div>
+        </div>
+    </div>
+
+
+    <script src="popup.js"></script>
 </body>
 </html>
-
-
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--    <head>-->
-<!--        <title>显示选中文本</title>-->
-<!--        <script src="popup.js"></script>-->
-<!--    </head>-->
-<!--        <body>-->
-<!--            <p>1111111</p>-->
-<!--            <textarea id="selectedText" ></textarea>-->
-<!--            <button id="copyFromClipboard">button</button>-->
-<!--        </body>-->
-<!--</html>-->

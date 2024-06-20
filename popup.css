@@ -1,8 +1,54 @@
-#image-container {
+.grid-container {
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
 }
+.grid-row {
+    display: flex; /* 使用flex布局来平均分布子元素 */
+    width: 100%;    /* 确保每一行都占满容器宽度 */
+    margin-bottom: 10px; /* 为每一行添加底部外边距，以便分隔行 */
+}
+.grid-item {
+    /*height: 100px;       !* 设置内容高度为100px *!*/
+    text-align: center;   /* 文本居中 */
+    padding: 10px;       /* 内边距 */
+    box-sizing: border-box; /* 边框计算在宽度内 */
+    border: none;        /* 移除边框 */
+    align-items: center; /* 垂直居中对齐 */
 
-.image-item {
-    margin: 10px;
+}
+.row-2 .grid-item {
+    width: 50%; /* 第一行两列平均分配 */
+    align-items: center;
+}
+.row-2 #direct-button-search{
+
+}
+.row-2 #text-input-search{
+    width: 150px;
+    float: left;
+}
+.row-2 #text-button-search{
+    width: 50px;
+    float: left;
+}
+.row-3 .grid-item {
+    width: 33.333%; /* 第二行三列平均分配 */
+}
+.row-3 .film-a{
+    color: black;
+    text-decoration: none;
+    transition: box-shadow 0.3s; /* 添加过渡效果 */
+
+}
+.row-3 .film-a:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
+}
+.row-4 .grid-item {
+    width: 25%; /* 第三行四列平均分配 */
+}
+
+.film-img {
+    width: 80%;
+    /*height: 50%;*/
 }

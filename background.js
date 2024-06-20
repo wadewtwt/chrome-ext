@@ -1,3 +1,3 @@
-chrome.runtime.onInstalled.addListener(function() {
-    console.log("Extension installed");
+chrome.runtime.onMessage.addListener(function(message) {
+    chrome.browserAction.setPopup({popup: "popup.html"});
 });
