@@ -1,3 +1,99 @@
+/*左边按钮*/
+#direct-button-search {
+    /* 按钮尺寸 */
+    padding: 10px 20px;
+    font-size: 16px;
+
+    /* 文字相关 */
+    color: white; /* 文字颜色 */
+    text-align: center; /* 文字居中 */
+    text-decoration: none; /* 去除下划线 */
+    font-family: 'Arial', sans-serif; /* 字体 */
+
+    /* 边框和圆角 */
+    border: none; /* 无边框 */
+    border-radius: 8px; /* 圆角 */
+
+    /* 背景和渐变 */
+    background: #6db3f2; /* 渐变起始颜色浅蓝 */
+    background: -webkit-linear-gradient(to right, #6db3f2, #3b82f6); /* 渐变效果深蓝 */
+    background: linear-gradient(to right, #6db3f2, #3b82f6); /* 兼容非webkit浏览器 */
+
+    /* 阴影 */
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2); /* 简单的阴影效果 */
+
+    /* 过渡效果 */
+    transition: all 0.3s ease;
+}
+#direct-button-search:hover {
+    /* 鼠标悬浮时的背景渐变变化 */
+    background: #3b82f6; /* 渐变起始颜色深蓝 */
+    background: -webkit-linear-gradient(to right, #3b82f6, #6db3f2); /* 渐变效果浅蓝 */
+    background: linear-gradient(to right, #3b82f6, #6db3f2); /* 兼容非webkit浏览器 */
+
+    /* 鼠标悬浮时的阴影变化 */
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+
+    /* 鼠标悬浮时的变换效果 */
+    transform: translateY(-2px);
+}
+/*右边按钮和搜索框*/
+#text-input-search {
+    padding: 10px; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    border: 1px solid #3b82f6; /* 边框颜色与按钮渐变色相匹配 */
+    border-radius: 8px; /* 圆角 */
+    outline: none; /* 去除默认轮廓 */
+    width: 60%; /* 宽度充满其父元素 */
+
+    box-sizing: border-box; /* 边框计算在宽度内 */
+    transition: border-color 0.3s ease; /* 边框颜色变化的过渡效果 */
+    float: left;
+}
+
+#text-input-search:focus {
+    border-color: #6db3f2; /* 聚焦时边框颜色变浅 */
+}
+
+/* 按钮样式 */
+#text-button-search {
+    float: left;
+    padding: 10px 10px;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    border: none;
+    border-radius: 8px;
+    background: #6db3f2;
+    background: -webkit-linear-gradient(to right, #6db3f2, #3b82f6);
+    background: linear-gradient(to right, #6db3f2, #3b82f6);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer; /* 鼠标悬停时显示指针手势 */
+    width: 30%; /* 宽度充满其父元素 */
+
+}
+
+#text-button-search:hover {
+    background: #3b82f6;
+    background: -webkit-linear-gradient(to right, #3b82f6, #6db3f2);
+    background: linear-gradient(to right, #3b82f6, #6db3f2);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+#text-button-search:active {
+    box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#text-button-search:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 179, 242, 0.6);
+}
+
+/*主要内容*/
 .grid-container {
     width: 500px;
     display: flex;
@@ -21,17 +117,8 @@
     width: 50%; /* 第一行两列平均分配 */
     align-items: center;
 }
-.row-2 #direct-button-search{
 
-}
-.row-2 #text-input-search{
-    width: 150px;
-    float: left;
-}
-.row-2 #text-button-search{
-    width: 50px;
-    float: left;
-}
+
 .row-3 .grid-item {
     width: 33.333%; /* 第二行三列平均分配 */
 }

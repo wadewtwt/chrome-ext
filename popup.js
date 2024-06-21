@@ -16,18 +16,44 @@ directButtonSearch.addEventListener('click', async () => {
             body: JSON.stringify({ title: clipboardText, type: 1 })
         })
             .then(response => response.json())
-        //     .then(data => {
-        //         const popupContent = document.getElementById('popup-content');
-        //         popupContent.innerHTML = ''; // 清空现有内容
-        //         data.forEach(item => {
-        //             const div = document.createElement('div');
-        //             div.innerHTML = `
-        //   <img src="${item.image}" alt="${item.description}">
-        //   <p>${item.description}</p>
-        // `;
-        //             popupContent.appendChild(div);
-        //         });
-        //     })
+            .then(data => {
+                console.log("remote data:")
+                console.log(data.data)
+                let remoteData = data.data
+
+                const gridRowDiv = document.querySelector('.grid-row.row-3');
+                gridRowDiv.innerHTML = ''
+                remoteData.list.forEach(movie => {
+                    // 创建一个新的a标签
+                    const aTag = document.createElement('a');
+                    aTag.className = 'grid-item film-a';
+                    aTag.href = movie.url;
+                    aTag.target = '_blank';
+
+                    // 创建img标签并设置属性
+                    const imgTag = document.createElement('img');
+                    imgTag.className = 'film-img';
+                    imgTag.src = movie.cover;
+                    imgTag.alt = '图片';
+
+                    // 创建标题h2标签
+                    const titleTag = document.createElement('h2');
+                    titleTag.textContent = movie.title;
+
+                    // 创建评分p标签
+                    const ratingTag = document.createElement('p');
+                    ratingTag.textContent = `评分：${movie.rating}`;
+
+                    // 将img、h2和p标签添加到a标签中
+                    aTag.appendChild(imgTag);
+                    aTag.appendChild(titleTag);
+                    aTag.appendChild(ratingTag);
+
+                    // 将a标签添加到div中
+                    gridRowDiv.appendChild(aTag);
+                });
+
+            })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
