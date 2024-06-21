@@ -118,7 +118,9 @@
     align-items: center;
 }
 
-
+.row-3{
+    justify-content: center;
+}
 .row-3 .grid-item {
     width: 33.333%; /* 第二行三列平均分配 */
 }
@@ -131,6 +133,12 @@
 .row-3 .film-a:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
 }
+.film-p{
+    text-align: center;   /* 文本居中 */
+    align-items: center;
+}
+
+
 .row-4 .grid-item {
     width: 25%; /* 第三行四列平均分配 */
 }
