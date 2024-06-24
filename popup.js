@@ -1,8 +1,9 @@
 const directButtonSearch = document.getElementById('direct-button-search');
 const textButtonSearch = document.getElementById('text-button-search');
-const textInputSearch = document.getElementById('text-input-search');
+
 
 directButtonSearch.addEventListener('click', async () => {
+    const textInputSearch = document.getElementById('text-input-search');
     try {
         // 读取剪贴板内容
         const clipboardText = await navigator.clipboard.readText();
@@ -27,8 +28,9 @@ directButtonSearch.addEventListener('click', async () => {
 });
 
 textButtonSearch.addEventListener('click', async () => {
+    const textInputSearch = document.getElementById('text-input-search');
     try {
-        console.log("textInputSearch is:" + textInputSearch)
+        console.log("textInputSearch is:" + textInputSearch.value)
         if (textInputSearch.value.length === 0){
             // 初始化主要内容的div
             const gridRowDiv = document.querySelector('.grid-row.row-3');
@@ -39,7 +41,7 @@ textButtonSearch.addEventListener('click', async () => {
             pTag.className = 'grid-item film-p';
             gridRowDiv.appendChild(pTag);
         }else{
-            requestDoDiv(textInputSearch);
+            requestDoDiv(textInputSearch.value);
         }
     } catch (error) {
         console.error('按钮搜索出错:', error);
@@ -50,12 +52,13 @@ function requestDoDiv(keyword){
     // 初始化主要内容的div
     const gridRowDiv = document.querySelector('.grid-row.row-3');
     gridRowDiv.innerHTML = ''
-    fetch('https://chromeext.usemock.com/api/douban/search', {
+    // fetch('https://chromeext.usemock.com/api/douban/search', {
+    fetch('http://116.198.203.114:13001/api/searchFilm', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ title: keyword, type: 1 })
+        body: JSON.stringify({ keyword: keyword, type: 1 })
     })
         .then(response => response.json())
         .then(data => {
