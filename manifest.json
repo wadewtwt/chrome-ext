@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Text Selection Display",
+  "name": "douban faster",
   "version": "1.0",
-  "description": "Display images and text based on selected text",
+  "description": "This is a plugin application for quickly querying Douban ratings",
   "permissions": [
     "activeTab", "storage", "commands", "clipboardRead"
   ],
