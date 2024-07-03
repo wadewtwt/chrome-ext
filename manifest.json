@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "This is a plugin application for quickly querying Douban ratings",
   "permissions": [
-    "activeTab", "storage", "commands", "clipboardRead"
+    "activeTab", "commands", "clipboardRead"
   ],
   "background": {
     "service_worker": "background.js"
