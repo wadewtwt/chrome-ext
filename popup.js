@@ -2,6 +2,7 @@ const directButtonSearch = document.getElementById('direct-button-search');
 const textButtonSearch = document.getElementById('text-button-search');
 
 
+// 从剪贴板查询
 directButtonSearch.addEventListener('click', async () => {
     const textInputSearch = document.getElementById('text-input-search');
     try {
@@ -27,6 +28,7 @@ directButtonSearch.addEventListener('click', async () => {
     }
 });
 
+// 从搜索框查询
 textButtonSearch.addEventListener('click', async () => {
     const textInputSearch = document.getElementById('text-input-search');
     try {
@@ -48,6 +50,7 @@ textButtonSearch.addEventListener('click', async () => {
     }
 });
 
+// 请求接口并替换相关div
 function requestDoDiv(keyword){
     // 初始化主要内容的div
     const gridRowDiv = document.querySelector('.grid-row.row-3');
@@ -65,7 +68,23 @@ function requestDoDiv(keyword){
             console.log("remote data:")
             console.log(data.data)
             let remoteData = data.data
+            if (remoteData.list.length === 0){
+                const aTag = document.createElement('a');
 
+                const textNode = document.createTextNode('抱歉没有找到...');
+                aTag.appendChild(textNode);
+
+                const spanTag = document.createElement('p');
+                spanTag.textContent = '点我反馈>>>';
+                spanTag.style.color = '#4990F5'; // 只给“点我反馈”设置颜色
+                spanTag.style.cursor = "pointer"
+                spanTag.id = "feedback"
+                spanTag.addEventListener('click', handleFeedbackClick);
+
+                aTag.appendChild(spanTag);
+
+                gridRowDiv.appendChild(aTag);
+            }
             remoteData.list.forEach(movie => {
                 // 创建一个新的a标签
                 const aTag = document.createElement('a');
@@ -100,5 +119,24 @@ function requestDoDiv(keyword){
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+}
+
+function handleFeedbackClick() {
+    const feedbackDom = document.getElementById('feedback');
+    if (feedbackDom !== null){
+        const textInputSearch = document.getElementById('text-input-search');
+        if (textInputSearch.value.length > 0){
+            fetch('http://116.198.203.114:13001/api/ReportKeyword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ keyword: textInputSearch })
+            })
+                .then(data => {
+                    feedbackDom.textContent = "感谢反馈！♥"
+                })
+        }
+    }
 }
 
