@@ -56,7 +56,7 @@ function requestDoDiv(keyword){
     const gridRowDiv = document.querySelector('.grid-row.row-3');
     gridRowDiv.innerHTML = ''
     // fetch('https://chromeext.usemock.com/api/douban/search', {
-    fetch('http://116.198.203.114:13001/api/searchFilm', {
+    fetch('https://pan.daohangpan.top/api/searchFilm', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
